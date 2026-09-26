@@ -1,0 +1,9 @@
+# GM-only material never belongs in a public repo.
+gm/
+private/
+*.gm.md
+
+# Local working files
+.obsidian/
+__pycache__/
+*.pyc

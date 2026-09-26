@@ -1,0 +1,18 @@
+# Canonical names only - pass to the transcriber with --names.
+# Do NOT add misspellings here; they belong in corrections.json.
+Alliance
+Empire
+Kryss
+Kryss Dorn
+Mynock's Mullet
+Nira
+Nira Dath'wen
+The Alliance
+The Galactic Empire
+The Mynock's Mullet
+The Rebel Alliance
+The Rebels
+Tivik
+Tivik Ordo
+Vega Squad
+Voshkar
