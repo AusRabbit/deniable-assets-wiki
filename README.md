@@ -5,10 +5,11 @@ open threads and a cross-linked cast.
 
 ## Where the content comes from
 
-No sessions have been played yet. The introduction pages were compiled from
-the crew's character sheets (kept in the private `deniable-assets` repo) and
-hold only what the table already knows: what's on the players' dashboard.
-Sessions will be added from recordings:
+The introduction pages were compiled from the crew's character sheets
+(kept in the private `deniable-assets` repo). Session 1 has now been added
+from its recording transcript. This public archive holds established play
+and player-known background, with uncertain names and outcomes marked.
+Session updates follow this pipeline:
 
 ```
 Craig recording  ->  faster-whisper  ->  transcript.txt  ->  content/*.md  ->  docs/index.html
@@ -39,8 +40,7 @@ change.
 Everything campaign-specific — name, sidebar tagline, meta description and
 the footer's source note — lives in the `CAMPAIGN` block at the top of
 `build.py`. `template.html` carries no campaign names. The sidebar's
-"Session N" is worked out from the highest `session:` in the vault — once
-Session 1 is written up, drop "Awaiting Session 1" from the tagline.
+"Session N" is worked out from the highest `session:` in the vault.
 
 ## Adding a session
 

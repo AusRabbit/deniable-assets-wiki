@@ -1,18 +1,28 @@
 # Canonical names only - pass to the transcriber with --names.
 # Do NOT add misspellings here; they belong in corrections.json.
 Alliance
+Armand
+Axel
+Deputy Inspector Armand
 Empire
 Kryss
 Kryss Dorn
+Lieutenant Voight
 Mynock's Mullet
 Nira
 Nira Dath'wen
 The Alliance
 The Galactic Empire
+The Imperial Moff
+The Luxury Spaceport
 The Mynock's Mullet
 The Rebel Alliance
 The Rebels
 Tivik
 Tivik Ordo
+Vega Company
 Vega Squad
+Voight
 Voshkar
+the Moff
+the spaceport

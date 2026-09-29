@@ -24,15 +24,14 @@ OUT = ROOT / "docs"
 CAMPAIGN = {
     "name": "Deniable Assets",
     # Sidebar subtitle. The current session number is appended automatically
-    # from the highest `session:` value in the vault (none yet).
-    "tagline": "The Mynock's Mullet \u00b7 Awaiting Session 1",
+    # from the highest `session:` value in the vault.
+    "tagline": "The Mynock's Mullet",
     "description": ("Campaign archive for Deniable Assets \u2014 "
                     "crew, ship, session recaps and a cross-linked cast."),
     # Footer on every page (HTML allowed): where this material comes from.
-    "source_note": ("No sessions have been played yet. This introduction was compiled from "
-                    "the crew's character sheets and holds only what the table already "
-                    "knows. Sessions will come from Craig recordings transcribed with "
-                    "<code>faster-whisper</code>."),
+    "source_note": ("Compiled from the crew's introductory character sheets and session "
+                    "recordings transcribed with <code>faster-whisper</code>. "
+                    "This public archive records established play and flags uncertain details."),
 }
 
 TYPE_LABEL = {"character": "Character", "place": "Place", "thing": "Item",

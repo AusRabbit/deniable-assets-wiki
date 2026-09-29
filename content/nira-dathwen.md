@@ -20,3 +20,7 @@ A surgical vibroscalpel, shock gloves and a holdout blaster, all small enough to
 - Knows everyone's medical history, including that of Axel, leader of [[vega-squad]], and his not-so-faithful wife.
 
 **Obligation:** Shame.
+
+## Session 1
+
+Sold [[armand]] a medical-extraction cover story, prepared the liquor that sedated [[imperial-moff|the Moff]], and tried to evacuate him under the same pretence. When [[lieutenant-voight]] refused, Nira fought with a vibroscalpel and left Armand incapacitated and bleeding. Nira also took blaster fire, then told [[axel]] to use Site B as the crew departed without Vega.

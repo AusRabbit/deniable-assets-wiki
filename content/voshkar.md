@@ -6,11 +6,14 @@ conf: hi
 dek: "The doorway-holder. Stands where the trouble is so nobody else has to."
 ---
 
-A Trandoshan hired gun and enforcer. Paid muscle who takes the job seriously, built to plant himself in a doorway and not move. Trandoshan claws and regeneration come as standard.
+An Ewok hired gun and enforcer. Small enough to be underestimated, loud enough to prevent it, and dangerously enthusiastic about traps and close combat. In [[session-1]], he spoke Ewok, stole attention more successfully than valuables, and hauled an Imperial Moff out by the ankles.
+
+> [!note] Campaign portrayal
+> Voshkar was introduced in the original character-sheet summary as a Trandoshan, but was consistently played and described as an Ewok in Session 1. This page follows the portrayal at the table; mechanical character-sheet changes are separate.
 
 ## Kit
 
-Kyuzo petars for punching through armour, and a shield gauntlet that turns him into cover for anyone standing behind him. A heavy blaster pistol for when a punch won't reach. Padded armour, a comlink and two stimpacks.
+Kyuzo petars, portrayed in Session 1 as savage Ewok claws, and a shield gauntlet that turns him into cover for anyone standing behind him. A heavy blaster pistol for when a punch won't reach. Padded armour, a comlink and two stimpacks.
 
 ## History
 
@@ -19,3 +22,7 @@ Kyuzo petars for punching through armour, and a shield gauntlet that turns him i
 - His face is recognisable in certain circles.
 
 **Obligation:** Favour.
+
+## Session 1
+
+Built an unreliable log trap, bit [[armand]] while trying to steal his pen, and fought at close quarters during the failed medical extraction. His distraction left [[lieutenant-voight]] prone. He dragged [[imperial-moff|the Moff]] to the ship during the withdrawal; the prisoner survived.

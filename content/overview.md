@@ -3,17 +3,19 @@ title: "Deniable Assets"
 group: "Campaign"
 type: doc
 order: 1
-dek: "Four professionals, one forgettable freighter, and a job nobody has named yet."
+dek: "Four operatives, one damaged freighter, and an Imperial Moff nobody invited aboard."
 ---
 
-A new Star Wars campaign. Nothing has happened yet: the four operatives haven't met the story, and they may not have met each other. Who hires them, what the job is and how they end up in the same room are all for Session 1 to decide.
+The crew began as transport and support for [[vega-squad]] on an operation against [[imperial-moff|an Imperial Moff]]. A stolen case of liquor, an improvised medical cover story and a firefight later, they escaped with the target alive — and left Vega behind.
 
-What they do have is a skill set that adds up to a crew, a ship built to be forgotten, and a lot of history with both sides of the war.
+## Current Situation
+
+At the end of [[session-1]], the [[mynocks-mullet]] has escaped the [[luxury-spaceport]] with damaged landing gear. The Moff is aboard, Kryss is injured, and [[axel]] is furious. The next destination and the prisoner's handover have not been established. See [[threads]] for the unfinished business.
 
 ## The Crew
 
 - [[kryss-dorn]] — Human bounty hunter and assassin. The marksman.
-- [[voshkar]] — Trandoshan enforcer. The one who stands in the doorway.
+- [[voshkar]] — Ewok enforcer. The one who stands in the doorway.
 - [[nira-dathwen]] — Bothan doctor and social operator, with credentials that expired a while ago.
 - [[tivik-ordo]] — Duros slicer and demolitions tech, wanted by both sides for his holonet habits.
 
