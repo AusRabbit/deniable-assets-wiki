@@ -215,6 +215,24 @@ def build():
     pages = load_pages()
     by_id = {p["id"]: p for p in pages}
 
+    talent_source = json.loads((ROOT / "talents.json").read_text(encoding="utf-8"))
+    talents = []
+    for t in talent_source.get("talents", []):
+        item = {
+            "name": t.get("name", ""),
+            "tier": t.get("tier"),
+            "activation": t.get("activation", ""),
+            "ranked": t.get("ranked", "No"),
+            "text": t.get("text_swrpg") or t.get("text_original_genesys", ""),
+            "source": t.get("source", ""),
+            "from": t.get("from", ""),
+            "superseded": t.get("superseded_by_version"),
+        }
+        item["search"] = " ".join(str(item[k] or "") for k in
+                                  ("name", "tier", "activation", "ranked", "text", "source", "from")).lower()
+        talents.append(item)
+    talents.sort(key=lambda t: (int(t["tier"] or 99), t["name"].lower()))
+
     alias_index = {}
     for p in pages:
         alias_index.setdefault(p["title"].lower(), p["id"])
@@ -258,6 +276,7 @@ def build():
             "group": p.get("group", "Other"),
             "type": p.get("type", "thing"),
             "typeLabel": TYPE_LABEL.get(p.get("type", "thing"), "Page"),
+            "layout": p.get("layout", "prose"),
             "dek": p.get("dek", ""),
             "conf": p.get("conf", ""),
             "confLabel": CONF_LABEL.get(p.get("conf", ""), ""),
@@ -281,6 +300,7 @@ def build():
             .replace("/*__SOURCE_NOTE__*/", json.dumps(CAMPAIGN["source_note"], ensure_ascii=False))
             .replace("/*__PAGES__*/", json.dumps(payload, ensure_ascii=False))
             .replace("/*__TITLES__*/", json.dumps(titles, ensure_ascii=False))
+            .replace("/*__TALENTS__*/", json.dumps(talents, ensure_ascii=False))
             .replace("__BUILT__", date.today().isoformat()))
 
     OUT.mkdir(exist_ok=True)

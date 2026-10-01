@@ -133,6 +133,23 @@
   .beat .t{font-family:var(--mono); font-size:11.5px; color:var(--muted); padding-top:4px}
   .beat .b p{margin:2px 0 0; font-size:14.5px; color:var(--muted)}
 
+  .talent-controls{display:grid; grid-template-columns:minmax(180px,2fr) repeat(3,minmax(120px,1fr)); gap:10px; margin:0 0 12px}
+  .talent-controls input,.talent-controls select{width:100%; min-width:0; padding:8px 10px; border:1px solid var(--line); border-radius:7px; background:var(--surface); color:var(--ink); font:14px var(--body)}
+  .talent-controls input:focus,.talent-controls select:focus{outline:2px solid var(--amber); outline-offset:1px}
+  .talent-summary{font:11px var(--mono); color:var(--muted); margin-bottom:14px}
+  .talent-list{display:grid; gap:10px}
+  .talent-card{border:1px solid var(--line); border-radius:9px; background:var(--surface); padding:14px 16px}
+  .talent-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:5px}
+  .talent-head h2{font-size:18px; line-height:1.2; border:0; padding:0; margin:0}
+  .talent-tier{flex:none; font:10.5px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--amber); background:var(--amber-soft); border-radius:4px; padding:3px 7px}
+  .talent-meta{font:10.5px var(--mono); color:var(--muted); margin-bottom:8px}
+  .talent-card p{margin:0 0 8px}
+  .talent-source{font-size:12.5px; color:var(--muted)}
+  .talent-note{font-size:12.5px; color:var(--rust); margin-top:7px}
+  .talent-empty{border:1px dashed var(--line); border-radius:9px; color:var(--muted); padding:22px; text-align:center}
+  @media (max-width:720px){.talent-controls{grid-template-columns:1fr 1fr}.talent-controls input{grid-column:1/-1}}
+  @media (max-width:460px){.talent-controls{grid-template-columns:1fr}.talent-controls input{grid-column:auto}}
+
   .foot{margin-top:44px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--muted)}
 
   .themebtn{
@@ -162,6 +179,7 @@
 <script>
 const PAGES  = /*__PAGES__*/;
 const TITLES = /*__TITLES__*/;
+const TALENTS = /*__TALENTS__*/;
 const BUILT  = "__BUILT__";
 const CAMPAIGN = /*__CAMPAIGN_JSON__*/;
 const SOURCE_NOTE = /*__SOURCE_NOTE__*/;
@@ -171,6 +189,58 @@ let current = PAGES.length ? PAGES[0].id : "";
 const main = document.getElementById("main");
 const nav  = document.getElementById("nav");
 const q    = document.getElementById("q");
+
+function esc(value){
+  return String(value == null ? "" : value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function activationGroup(value){
+  const a = String(value || "").toLowerCase();
+  if(a === "passive") return "Passive";
+  if(a.includes("out of turn") || a.includes("out-of-turn") || a.includes("oot")) return "Out of turn";
+  if(a.includes("action")) return "Action";
+  if(a.includes("maneuver")) return "Maneuver";
+  return "Incidental";
+}
+
+function talentLibrary(){
+  const tiers = [...new Set(TALENTS.map(t => t.tier))].sort((a,b) => a-b);
+  return '<div class="talent-controls">'
+    + '<input id="talent-q" type="search" placeholder="Search names, rules or sources&hellip;" aria-label="Search talents">'
+    + '<select id="talent-tier" aria-label="Filter by tier"><option value="">All tiers</option>' + tiers.map(t => '<option value="' + t + '">Tier ' + t + '</option>').join('') + '</select>'
+    + '<select id="talent-activation" aria-label="Filter by activation"><option value="">All activations</option><option>Passive</option><option>Action</option><option>Maneuver</option><option>Incidental</option><option>Out of turn</option></select>'
+    + '<select id="talent-ranked" aria-label="Filter by ranked status"><option value="">Ranked or unranked</option><option value="Yes">Ranked</option><option value="No">Unranked</option></select>'
+    + '</div><div class="talent-summary" id="talent-summary"></div><div class="talent-list" id="talent-list"></div>';
+}
+
+function wireTalentLibrary(){
+  const search = document.getElementById("talent-q");
+  if(!search) return;
+  const tier = document.getElementById("talent-tier");
+  const activation = document.getElementById("talent-activation");
+  const ranked = document.getElementById("talent-ranked");
+  const list = document.getElementById("talent-list");
+  const summary = document.getElementById("talent-summary");
+  function update(){
+    const needle = search.value.trim().toLowerCase();
+    const matches = TALENTS.filter(t =>
+      (!needle || t.search.includes(needle)) &&
+      (!tier.value || String(t.tier) === tier.value) &&
+      (!activation.value || activationGroup(t.activation) === activation.value) &&
+      (!ranked.value || t.ranked === ranked.value)
+    );
+    summary.textContent = matches.length + (matches.length === 1 ? " talent" : " talents") + " shown of " + TALENTS.length;
+    list.innerHTML = matches.length ? matches.map(t =>
+      '<article class="talent-card"><div class="talent-head"><h2>' + esc(t.name) + '</h2><span class="talent-tier">Tier ' + esc(t.tier) + '</span></div>'
+      + '<div class="talent-meta">' + esc(t.activation) + ' · ' + (t.ranked === "Yes" ? "Ranked" : "Unranked") + '</div>'
+      + '<p>' + esc(t.text) + '</p>'
+      + '<div class="talent-source">Source: ' + esc(t.source || "Not listed") + (t.from && t.from !== t.name ? ' · Adapted from ' + esc(t.from) : '') + '</div>'
+      + (t.superseded ? '<div class="talent-note">Superseded by version: ' + esc(t.superseded) + '</div>' : '')
+      + '</article>').join('') : '<div class="talent-empty">No talents match these filters.</div>';
+  }
+  [search,tier,activation,ranked].forEach(el => el.addEventListener(el === search ? "input" : "change", update));
+  update();
+}
 
 function renderPage(id){
   const p = byId[id];
@@ -197,6 +267,7 @@ function renderPage(id){
   }
 
   h += '<div class="prose">' + p.html + '</div>';
+  if(p.layout === "talents") h += talentLibrary();
 
   if(p.backlinks.length){
     h += '<div class="backlinks"><div class="ph">Mentioned in</div><ul>'
@@ -232,6 +303,7 @@ function route(){
   const id = decodeURIComponent(location.hash.slice(1));
   current = byId[id] ? id : (PAGES.length ? PAGES[0].id : "");
   main.innerHTML = renderPage(current);
+  if(byId[current] && byId[current].layout === "talents") wireTalentLibrary();
   nav.innerHTML = renderNav(q.value);
   document.title = (byId[current] ? byId[current].title + " · " : "") + CAMPAIGN;
   window.scrollTo(0, 0);
