@@ -26,3 +26,7 @@ Kyuzo petars, portrayed in Session 1 as savage Ewok claws, and a shield gauntlet
 ## Session 1
 
 Built an unreliable log trap, bit [[armand]] while trying to steal his pen, and fought at close quarters during the failed medical extraction. His distraction left [[lieutenant-voight]] prone. He dragged [[imperial-moff|the Moff]] to the ship during the withdrawal; the prisoner survived.
+
+## Session 2
+
+Pulled aside for random drug and alcohol testing aboard the [[rebel-frigate|Rebel frigate]] just before the crew left for [[brentaal-iv]]. The crew waited for hours; the Rebels said only that he was "indisposed". He is having an adventure of his own and may turn up mid-mission.

@@ -7,7 +7,7 @@ short: "Armand"
 dek: "Wanted his landing pad cleared and his liquor returned. Had a much worse night."
 ---
 
-A meticulously dressed bureaucrat responsible for clearing [[imperial-moff|the Moff]]'s private landing pad at the [[luxury-spaceport]]. He carries a datapad, a pistol and a pen that [[voshkar]] badly wanted.
+A meticulously dressed bureaucrat responsible for clearing [[imperial-moff|the Moff]]'s private landing pad at the [[luxury-spaceport|luxury spaceport]]. He carries a datapad, a pistol and a pen that [[voshkar]] badly wanted.
 
 ## Session 1
 

@@ -3,18 +3,26 @@
 Alliance
 Armand
 Axel
+Brentaal IV
 Deputy Inspector Armand
 Empire
+Feeler
+Hush
+Hush and Whisper
+Kel Oramm
 Kryss
 Kryss Dorn
 Lieutenant Voight
+Major Kel Oramm
 Mynock's Mullet
 Nira
 Nira Dath'wen
 The Alliance
+The Droid Factory
 The Galactic Empire
 The Imperial Moff
 The Luxury Spaceport
+The Mon Calamari Frigate
 The Mynock's Mullet
 The Rebel Alliance
 The Rebels
@@ -24,5 +32,7 @@ Vega Company
 Vega Squad
 Voight
 Voshkar
+Whisper
 the Moff
+the frigate
 the spaceport

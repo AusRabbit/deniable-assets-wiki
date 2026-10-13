@@ -3,14 +3,14 @@ title: "Deniable Assets"
 group: "Campaign"
 type: doc
 order: 1
-dek: "Four operatives, one damaged freighter, and an Imperial Moff nobody invited aboard."
+dek: "Four operatives, one damaged freighter, and a handler who has run out of patience."
 ---
 
 The crew began as transport and support for [[vega-squad]] on an operation against [[imperial-moff|an Imperial Moff]]. A stolen case of liquor, an improvised medical cover story and a firefight later, they escaped with the target alive — and left Vega behind.
 
 ## Current Situation
 
-At the end of [[session-1]], the [[mynocks-mullet]] has escaped the [[luxury-spaceport]] with damaged landing gear. The Moff is aboard, Kryss is injured, and [[axel]] is furious. The next destination and the prisoner's handover have not been established. See [[threads]] for the unfinished business.
+After [[session-2]], the Moff is in Rebel hands with a fractured skull, and [[kel-oramm|Major Oramm]] has docked the crew's pay and refused to repair the [[mynocks-mullet]]. Rebel Intelligence has sent Kryss, Nira and Tivik to [[brentaal-iv]] to find [[feeler]], the slicer who got them onto the Moff's pad. They hold Feeler's [[droid-factory|droid factory]], with enough intelligence inside to find the function Feeler is attending. [[voshkar]] is "indisposed" back on the [[rebel-frigate|frigate]]. See [[threads]] for the unfinished business.
 
 ## The Crew
 
@@ -33,3 +33,7 @@ Every member of the crew is tangled up with both the [[galactic-empire]] and the
 - The difficulty of a check is stated before you roll, and it depends on the actual stakes rather than a fixed default.
 - Declare what you want to do in your own words. There's no numbered menu of options.
 - Initiative slots aren't assigned to specific characters; anyone eligible on that side can take one.
+- Armour **defense** adds setback dice to attacks against you; **soak** (Brawn plus armour) reduces damage. Defense was overlooked in the first two sessions and applies from now on.
+- Critical injuries stay on your record even once treated; each one adds +10 to the next critical roll.
+- Gear doesn't run on a price list. At the end of a mission, pick a reward — a weapon, armour or a piece of equipment. Between missions, you can also negotiate with the quartermaster on the frigate.
+- Hooks and flags are welcome. Invent links between your characters as you play, and tell the table what you want your character's big moment to be.

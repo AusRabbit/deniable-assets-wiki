@@ -13,3 +13,7 @@ The imposing leader of [[vega-squad]]. He treats the crew of the [[mynocks-mulle
 ## Session 1
 
 After [[kryss-dorn]]'s exuberant landing, Axel told the crew to stay with the ship while Vega departed on its operation. Later, Nira called to say the crew had [[imperial-moff|the target]] and directed Vega to Site B. Axel's answer was furious. The freighter left without his squad; no subsequent pickup is recorded.
+
+## Session 2
+
+Not seen. [[nira-dathwen]] hinted at his medical history in front of [[kel-oramm|Major Oramm]], who was more interested in where Axel's squad had gone.

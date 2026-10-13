@@ -13,4 +13,8 @@ It carries a single light laser cannon in a turret that covers every arc, crewed
 
 ## Session 1
 
-Carried [[vega-squad]] into the [[luxury-spaceport]] under forged codes. [[kryss-dorn]] later landed it on a speeder in a nearby street, damaging the left landing-gear assembly. [[tivik-ordo]] flew the escape with the speeder still caught on a landing leg until it fell away. The crew and [[imperial-moff|the captive Moff]] got out; Vega did not come aboard. Repairs and the next landing remain outstanding.
+Carried [[vega-squad]] into the [[luxury-spaceport|luxury spaceport]] under forged codes. [[kryss-dorn]] later landed it on a speeder in a nearby street, damaging the left landing-gear assembly. [[tivik-ordo]] flew the escape with the speeder still caught on a landing leg until it fell away. The crew and [[imperial-moff|the captive Moff]] got out; Vega did not come aboard.
+
+## Session 2
+
+[[kel-oramm|Major Oramm]] put a moratorium on repairing it at the Rebellion's expense, so it left the [[rebel-frigate|frigate]] for [[brentaal-iv]] with its landing gear still damaged.

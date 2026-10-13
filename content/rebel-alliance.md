@@ -8,7 +8,7 @@ aka: ["The Rebels", "The Alliance"]
 dek: "The other side of the war. The crew are tangled up with it too."
 ---
 
-In [[session-1]], an unnamed Alliance supporter arranged the crew's landing at the [[luxury-spaceport]] for the operation against [[imperial-moff|the Moff]]. The crew delivered [[vega-squad]], then departed with the target alive and Vega still on the ground. No subsequent debrief or handover has been recorded.
+In [[session-1]], a contact — later identified as the slicer [[feeler]] — arranged the crew's landing at the [[luxury-spaceport|luxury spaceport]] for the operation against [[imperial-moff|the Moff]]. The crew delivered [[vega-squad]], then departed with the target alive and Vega still on the ground. In [[session-2]], [[kel-oramm|Major Kel Oramm]] of Rebel Intelligence debriefed the crew aboard a [[rebel-frigate|Mon Calamari frigate]]. He docked their pay, refused repairs and sent them to [[brentaal-iv]] to bring Feeler in.
 
 The crew's older ties to the Alliance:
 

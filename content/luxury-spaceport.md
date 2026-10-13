@@ -9,6 +9,8 @@ dek: "Private berths and a botanical garden above. An Imperial extraction force 
 
 A ground-based spaceport on an unnamed Imperial jungle world, visited in [[session-1]]. Neither the world's name nor the port's proper name is established clearly in the recording.
 
+The crew's clearance to land here came from [[feeler]], whose data packet supplied the forged credentials and landing information.
+
 ## Layout
 
 Around ten to twelve landing pads form a ring around a central botanical garden. The public lobby operates around the clock, with lifts leading to lower levels. Docking Bay Four is [[imperial-moff|the Moff]]'s private berth, with an expensive reception area and liquor supply. [[armand]] oversees preparations there.

@@ -7,7 +7,7 @@ short: "Empire"
 dek: "One side of the war. The crew are tangled up with it anyway."
 ---
 
-In [[session-1]], the crew abducted [[imperial-moff|an Imperial Moff]] from the [[luxury-spaceport]], fought his escort and delayed the port's garrison with explosives. [[lieutenant-voight]] remained active during their escape.
+In [[session-1]], the crew abducted [[imperial-moff|an Imperial Moff]] from the [[luxury-spaceport|luxury spaceport]], fought his escort and delayed the port's garrison with explosives. [[lieutenant-voight]] remained active during their escape.
 
 The crew's older ties to the Empire:
 

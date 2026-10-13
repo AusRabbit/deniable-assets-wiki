@@ -9,6 +9,7 @@ Standard library only. Run it with:  python3 build.py
 """
 
 import html
+import shutil
 import json
 import pathlib
 import re
@@ -113,6 +114,9 @@ def inline(text, resolve, unresolved):
 # ---------------------------------------------------------------- block markdown
 
 CALLOUT = re.compile(r"^>\s*\[!(\w+)\]\s*(.*)$")
+# A line on its own: ![caption](img/file.jpg). Paths are relative to content/,
+# so Obsidian shows the picture too; build() copies content/img/ to docs/img/.
+IMAGE = re.compile(r"^!\[([^\]]*)\]\(([^)\s]+)\)$")
 
 
 def render_prose(body, resolve, unresolved):
@@ -138,6 +142,18 @@ def render_prose(body, resolve, unresolved):
             out.append('<div class="%s"><div class="ph">%s</div><p>%s</p></div>'
                        % (cls, inline(heading, resolve, unresolved),
                           inline(" ".join(para).strip(), resolve, unresolved)))
+            continue
+
+        m = IMAGE.match(stripped)
+        if m:
+            caption, src = m.group(1).strip(), m.group(2)
+            if not (CONTENT / src).is_file():
+                unresolved.append("image: " + src)
+            out.append('<figure class="fig"><img src="%s" alt="%s" loading="lazy">%s</figure>'
+                       % (html.escape(src), html.escape(caption),
+                          "<figcaption>%s</figcaption>" % inline(caption, resolve, unresolved)
+                          if caption else ""))
+            i += 1
             continue
 
         if stripped.startswith("## "):
@@ -304,6 +320,11 @@ def build():
             .replace("__BUILT__", date.today().isoformat()))
 
     OUT.mkdir(exist_ok=True)
+    # Images live in the vault (content/img/) and are published beside the page.
+    if (CONTENT / "img").is_dir():
+        if (OUT / "img").exists():
+            shutil.rmtree(OUT / "img")
+        shutil.copytree(CONTENT / "img", OUT / "img")
     (OUT / "index.html").write_text(page, encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
@@ -353,7 +374,7 @@ def build():
     print("%d canonical names -> names.txt" % len(names))
     print("%d corrections -> corrections.json" % len(corrections))
     if unresolved_all:
-        print("\nUnresolved wikilinks (they render in red on the site):")
+        print("\nUnresolved wikilinks or missing images (links render in red on the site):")
         for src, target in unresolved_all:
             print("  %-26s -> [[%s]]" % (src + ".md", target))
         return 1
