@@ -227,6 +227,40 @@ def render_threads(body, resolve, unresolved):
 
 # ---------------------------------------------------------------- assembly
 
+# Talent rules text (talents.json "text_swrpg") is written in shorthand
+# glyphs. The talents page draws each one with the matching dice/symbol image
+# from talent-icons/, embedded as a data URI so docs/index.html stays a single
+# self-contained file. ◑ (a Force point of either side) has no image and stays
+# as text.
+TALENT_GLYPHS = {
+    "✔": ("Success", "symbol-success.png"),
+    "✖": ("Failure", "symbol-failure.png"),
+    "▲": ("Advantage", "symbol-advantage.png"),
+    "▼": ("Threat", "symbol-threat.png"),
+    "★": ("Triumph", "symbol-triumph.png"),
+    "☠": ("Despair", "symbol-despair.png"),
+    "○": ("Light side Force point", "symbol-light-side.png"),
+    "●": ("Dark side Force point", "symbol-dark-side.png"),
+    "🟩": ("Ability die", "die-ability.png"),
+    "🟨": ("Proficiency die", "die-proficiency.png"),
+    "🟦": ("Boost die", "die-boost.png"),
+    "◆": ("Difficulty die", "die-difficulty.png"),
+    "🟥": ("Challenge die", "die-challenge.png"),
+    "⬛": ("Setback die", "die-setback.png"),
+    "⚪": ("Force die", "die-force.png"),
+}
+
+
+def talent_glyphs():
+    import base64
+    out = {}
+    for glyph, (label, fname) in TALENT_GLYPHS.items():
+        f = ROOT / "talent-icons" / fname
+        src = ("data:image/png;base64," + base64.b64encode(f.read_bytes()).decode("ascii")) if f.exists() else ""
+        out[glyph] = {"label": label, "src": src}
+    return out
+
+
 def build():
     pages = load_pages()
     by_id = {p["id"]: p for p in pages}
@@ -243,9 +277,13 @@ def build():
             "source": t.get("source", ""),
             "from": t.get("from", ""),
             "superseded": t.get("superseded_by_version"),
+            "force": t.get("force", "No"),
+            "notes": t.get("notes"),
         }
         item["search"] = " ".join(str(item[k] or "") for k in
-                                  ("name", "tier", "activation", "ranked", "text", "source", "from")).lower()
+                                  ("name", "tier", "activation", "ranked", "text", "source", "from", "notes")).lower()
+        if item["force"] == "Yes":
+            item["search"] += " force talent"
         talents.append(item)
     talents.sort(key=lambda t: (int(t["tier"] or 99), t["name"].lower()))
 
@@ -317,6 +355,7 @@ def build():
             .replace("/*__PAGES__*/", json.dumps(payload, ensure_ascii=False))
             .replace("/*__TITLES__*/", json.dumps(titles, ensure_ascii=False))
             .replace("/*__TALENTS__*/", json.dumps(talents, ensure_ascii=False))
+            .replace("/*__GLYPHS__*/", json.dumps(talent_glyphs(), ensure_ascii=False))
             .replace("__BUILT__", date.today().isoformat()))
 
     OUT.mkdir(exist_ok=True)

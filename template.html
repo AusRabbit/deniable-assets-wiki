@@ -136,7 +136,15 @@
   .beat .t{font-family:var(--mono); font-size:11.5px; color:var(--muted); padding-top:4px}
   .beat .b p{margin:2px 0 0; font-size:14.5px; color:var(--muted)}
 
-  .talent-controls{display:grid; grid-template-columns:minmax(180px,2fr) repeat(3,minmax(120px,1fr)); gap:10px; margin:0 0 12px}
+  .talent-controls{display:grid; grid-template-columns:minmax(180px,2fr) repeat(4,minmax(110px,1fr)); gap:10px; margin:0 0 12px}
+  .talent-badges{display:flex; gap:6px; flex:none}
+  .talent-force{flex:none; font:10.5px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--ink); border:1px solid var(--line); border-radius:4px; padding:2px 7px}
+  .dg{width:1.05em; height:1.05em; vertical-align:-0.25em; object-fit:contain; margin:0 1px; padding:1.5px; box-sizing:content-box; background:#16191b; border-radius:4px}
+  .dg.die{background:none; padding:0; width:1.2em; height:1.2em}
+  .halfpip{font-family:"Segoe UI Symbol","DejaVu Sans","Noto Sans Symbols 2","Apple Symbols",sans-serif}
+  .talent-key{border:1px solid var(--line); border-radius:9px; background:var(--surface); padding:10px 14px; margin:0 0 14px}
+  .talent-key summary{cursor:pointer; font:11px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+  .talent-key-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:6px 14px; margin-top:10px; font-size:13.5px}
   .talent-controls input,.talent-controls select{width:100%; min-width:0; padding:8px 10px; border:1px solid var(--line); border-radius:7px; background:var(--surface); color:var(--ink); font:14px var(--body)}
   .talent-controls input:focus,.talent-controls select:focus{outline:2px solid var(--amber); outline-offset:1px}
   .talent-summary{font:11px var(--mono); color:var(--muted); margin-bottom:14px}
@@ -183,6 +191,24 @@
 const PAGES  = /*__PAGES__*/;
 const TITLES = /*__TITLES__*/;
 const TALENTS = /*__TALENTS__*/;
+const GLYPHS = /*__GLYPHS__*/;
+
+// Rules text -> escaped HTML with each shorthand glyph drawn as its die or
+// symbol image (see TALENT_GLYPHS in build.py).
+function rulesHtml(text){
+  return Array.from(String(text == null ? "" : text)).map(ch => {
+    if(ch === "\uFE0F") return "";
+    if(ch === "◑") return '<span class="halfpip" title="Force point of either side">◑</span>';
+    const g = GLYPHS[ch];
+    return g && g.src ? '<img class="dg' + (/ die$/.test(g.label) ? ' die' : '') + '" src="' + g.src + '" alt="' + esc(g.label) + '" title="' + esc(g.label) + '">' : esc(ch);
+  }).join("");
+}
+
+function talentKey(){
+  return '<details class="talent-key"><summary>Symbol key</summary><div class="talent-key-grid">'
+    + Object.entries(GLYPHS).map(([ch, g]) => '<div>' + rulesHtml(ch) + ' ' + esc(g.label) + '</div>').join('')
+    + '<div>' + rulesHtml("◑") + ' Force point of either side</div></div></details>';
+}
 const BUILT  = "__BUILT__";
 const CAMPAIGN = /*__CAMPAIGN_JSON__*/;
 const SOURCE_NOTE = /*__SOURCE_NOTE__*/;
@@ -208,11 +234,12 @@ function activationGroup(value){
 
 function talentLibrary(){
   const tiers = [...new Set(TALENTS.map(t => t.tier))].sort((a,b) => a-b);
-  return '<div class="talent-controls">'
+  return talentKey() + '<div class="talent-controls">'
     + '<input id="talent-q" type="search" placeholder="Search names, rules or sources&hellip;" aria-label="Search talents">'
     + '<select id="talent-tier" aria-label="Filter by tier"><option value="">All tiers</option>' + tiers.map(t => '<option value="' + t + '">Tier ' + t + '</option>').join('') + '</select>'
     + '<select id="talent-activation" aria-label="Filter by activation"><option value="">All activations</option><option>Passive</option><option>Action</option><option>Maneuver</option><option>Incidental</option><option>Out of turn</option></select>'
     + '<select id="talent-ranked" aria-label="Filter by ranked status"><option value="">Ranked or unranked</option><option value="Yes">Ranked</option><option value="No">Unranked</option></select>'
+    + '<select id="talent-force" aria-label="Filter by Force talents"><option value="">Force and non-Force</option><option value="Yes">Force talents only</option><option value="No">Non-Force talents</option></select>'
     + '</div><div class="talent-summary" id="talent-summary"></div><div class="talent-list" id="talent-list"></div>';
 }
 
@@ -222,6 +249,7 @@ function wireTalentLibrary(){
   const tier = document.getElementById("talent-tier");
   const activation = document.getElementById("talent-activation");
   const ranked = document.getElementById("talent-ranked");
+  const force = document.getElementById("talent-force");
   const list = document.getElementById("talent-list");
   const summary = document.getElementById("talent-summary");
   function update(){
@@ -230,18 +258,20 @@ function wireTalentLibrary(){
       (!needle || t.search.includes(needle)) &&
       (!tier.value || String(t.tier) === tier.value) &&
       (!activation.value || activationGroup(t.activation) === activation.value) &&
-      (!ranked.value || t.ranked === ranked.value)
+      (!ranked.value || t.ranked === ranked.value) &&
+      (!force.value || (t.force || "No") === force.value)
     );
     summary.textContent = matches.length + (matches.length === 1 ? " talent" : " talents") + " shown of " + TALENTS.length;
     list.innerHTML = matches.length ? matches.map(t =>
-      '<article class="talent-card"><div class="talent-head"><h2>' + esc(t.name) + '</h2><span class="talent-tier">Tier ' + esc(t.tier) + '</span></div>'
+      '<article class="talent-card"><div class="talent-head"><h2>' + esc(t.name) + '</h2><span class="talent-badges">' + (t.force === "Yes" ? '<span class="talent-force">Force</span>' : '') + '<span class="talent-tier">Tier ' + esc(t.tier) + '</span></span></div>'
       + '<div class="talent-meta">' + esc(t.activation) + ' · ' + (t.ranked === "Yes" ? "Ranked" : "Unranked") + '</div>'
-      + '<p>' + esc(t.text) + '</p>'
+      + '<p>' + rulesHtml(t.text) + '</p>'
       + '<div class="talent-source">Source: ' + esc(t.source || "Not listed") + (t.from && t.from !== t.name ? ' · Adapted from ' + esc(t.from) : '') + '</div>'
       + (t.superseded ? '<div class="talent-note">Superseded by version: ' + esc(t.superseded) + '</div>' : '')
+      + (t.notes ? '<div class="talent-note">' + esc(t.notes) + '</div>' : '')
       + '</article>').join('') : '<div class="talent-empty">No talents match these filters.</div>';
   }
-  [search,tier,activation,ranked].forEach(el => el.addEventListener(el === search ? "input" : "change", update));
+  [search,tier,activation,ranked,force].forEach(el => el.addEventListener(el === search ? "input" : "change", update));
   update();
 }
 
