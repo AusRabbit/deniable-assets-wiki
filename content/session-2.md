@@ -21,6 +21,8 @@ When he asked after [[imperial-moff|the Moff]], Nira explained that she had impr
 
 While Oramm raged, [[tivik-ordo]] quietly scooped the thrown datapad off the floor. It turned out to be a sensitive intelligence briefing. Oramm announced that the whole affair would come out of their pay and that there was "Buckley's chance" of the ship being repaired at the Rebellion's expense.
 
+![Oramm loses his temper; Nira's ice cream hits the floor; Tivik palms the datapad](img/s2-debrief.jpg)
+
 ## A new job
 
 One of the attendants came back alone, kinder than her superior. Vega Company would surface, she said, but the crew should stop making a habit of leaving them in the lurch. Meanwhile Rebel Intelligence had questions of its own. The contact who arranged the crew's clearance to land at the Moff's pad — supplying the intelligence, the forged credentials and the landing information — had gone silent, and Intelligence was suspicious about how that landing had come about.
@@ -49,6 +51,8 @@ The flashy credstick had attracted attention. Two thugs with death sticks and ca
 
 One thug jammed his carbine against Nira's chest and fired. She batted the barrel aside, and her shock gloves crackled to life. Her vibroscalpel missed, but the thug fell backwards trying to avoid it, and she kicked over a barrel for cover. Kryss quick-drew his pistol and riddled the second thug with autofire, then sidestepped his return fire. Tivik moved to the doorway's flank and hit the first thug with a heavy pistol shot. Neither thug had landed a blow; both ran off into the rain.
 
+![Nira bats the carbine aside as Kryss and Tivik open fire](img/s2-outside-the-bar.jpg)
+
 Kryss winged one with a parting rifle shot. The thug dropped a grimy satchel containing a packet of death sticks, 50 credits and a small bag of unidentified white powder.
 
 ## The droid factory
@@ -57,17 +61,23 @@ Kryss's survey of the warehouse found no cameras, patrols or turrets — just di
 
 Kryss stepped on a newly installed pressure plate wired into the building's power. He froze, called for Jaxon and stayed calm enough to expose the wiring back to a control terminal. Tivik sliced it and disarmed the trap without using his demolitions kit. Turning around, he came face to face with a dead droid's dangling head. Nira salvaged a good droid leg, in case Kryss ever needs a prosthetic.
 
+![Kryss holds still on the pressure plate while Tivik works the terminal](img/s2-droid-factory.jpg)
+
 A gantry led to offices on the upper floor. On the way, Nira triggered a ceiling net made from repurposed cargo mesh, which slammed her to the ground. She began cutting her way out with her vibroscalpel. Tivik noticed a shadow moving. Kryss charged after it, swung at what turned out to be an inert droid, and realised that there were two threats: one on the floor and one up high.
 
 ## Hush and Whisper
 
 The crew had been ambushed by two lurker droids, cobbled together from the factory's spare parts. The first scuttled across the floor on all fours towards Kryss. He dived behind a conveyor. Nira, free of the net, hit it with her shock gloves. The second dropped onto the gantry and shot Nira with a suppressed blaster. The first leapt the conveyor and caught Kryss with shock claws, tearing itself up on the machinery in the process.
 
+![Nira cuts free of the net and swings the droid leg; Kryss fires point-blank](img/s2-hush-and-whisper-fight.jpg)
+
 Nira took up the salvaged droid leg and swung it like an electrified bat. Tivik threw a frag grenade at the gantry droid, leaving the gantry hanging askew. Kryss put a point-blank stun bolt into the clawed droid, Hush, freezing it mid-lunge with its claw reaching for his throat. The gantry droid dropped to the floor and tried to vanish into the dark, but Tivik pinned it with pistol fire. Kryss switched to his rifle, aimed for a headshot and missed, but hit an electrical panel instead. The arc of current overloaded the droid's head, and Whisper exploded.
 
 Both droids had their names daubed on their chassis. [[hush-and-whisper|Hush]] survived just long enough for Tivik to slice into it and get three answers before it shut down. Hush and Whisper were built by Feeler. Their master goes by many handles, Feeler being the most common, and had stepped away to attend a function.
 
 Nira used her medpac on Kryss, stimmed him, and put a lit death stick in his mouth for the pain.
+
+![Whisper explodes, Tivik slices Hush, and Nira patches up Kryss](img/s2-aftermath.jpg)
 
 ## Where things stand
 
